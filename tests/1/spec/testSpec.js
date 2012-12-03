@@ -16,8 +16,8 @@ describe("Module #1", function() {
     it("should evaluate variables", function() {
         
         a = 5;
-
         expect(a).toBeGreaterThan(2); // lots of matchers - ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
+    
     });
 
     it("should evaluate objects", function() {
@@ -35,7 +35,7 @@ describe("Module #1", function() {
         expect( [1,2] ).toEqual( [1,2] );
 
         // or methods of custom objects
-        expect( new Dog().toString() ).toEqual( 'spot,#000' )
+        expect( new Dog('bingo').toString() ).toEqual( 'bingo,#000' )
     
 
     });
