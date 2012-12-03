@@ -15,9 +15,9 @@ describe("Module #1", function() {
     // A second test
     it("should evaluate variables", function() {
         
-        a = true;
+        a = 5;
 
-        expect(a).toBe(true);
+        expect(a).toBeGreaterThan(2); // lots of matchers - ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
     });
 
     it("should evaluate objects", function() {
