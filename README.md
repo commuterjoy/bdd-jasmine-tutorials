@@ -28,3 +28,19 @@ And some of them in the browser,
 ```
 open tests/3/runner.html
 ```
+
+Tutorials
+---------
+
+- 1. Basics - expectations
+- 2. Basics - beforeEach
+- 3. Pattern for testing AMD modules
+- 4. Patterns for testing asynchronous code 
+- 5. ...
+
+Homework
+--------
+
+- 1. JSONP - most requests are via jsonp (not xhr).
+- 2. 
+- 3. 
