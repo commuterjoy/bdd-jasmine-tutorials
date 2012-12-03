@@ -35,7 +35,7 @@ curl('foo').then( function  (module) {
 
             });
             
-            // Answer #2 - Fake it
+            // Answer #2 - Spy on it
             it("should mock the XHR request", function() {
 
                 spyOn(module.$, "get").andCallFake(function(url, success) { // Essentially linearise the execution chain of the functions
@@ -44,20 +44,38 @@ curl('foo').then( function  (module) {
                 
                 var a = false;
                
-                module.$.get('fixtures/1', function () {
+                module.$.get('fixtures/2', function () {
                     a = true; 
                 });
                 
                 expect(a).toBeTruthy();
-               
-                // or 
 
                 expect(module.$.get).toHaveBeenCalled();
                 
-                // or
-                
-                expect(module.$.get.mostRecentCall.args[0]).toEqual("fixtures/1");
+                expect(module.$.get.mostRecentCall.args[0]).toEqual("fixtures/2");
 
+            });
+
+            // Answer #3 - Fake it (Sinon overwrites the window.XMLHttpRequest object)
+            it("should fake the XHR request", function() {
+
+                var xhr = sinon.useFakeXMLHttpRequest()
+                  , server = sinon.fakeServer.create();
+                
+                server.respondWith("GET", "fixtures/3", [200, {}, 'some server data']); // Nb. think about how you can use this to test HTTP 404s, 500 etc.
+                
+                var a = false;
+
+                module.$.get('fixtures/3', function () {
+                    a = true; 
+                });
+                 
+                server.respond();  // tell the fake server to respond to any requests it's received
+                
+                expect(a).toBeTruthy();
+
+                xhr.restore();
+                
             });
 
         })
