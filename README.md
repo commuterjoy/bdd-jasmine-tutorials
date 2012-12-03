@@ -39,4 +39,5 @@ Tutorials
 5. Simple DOM interactions 
 6. Dates
 7. Custom matchers
- 
+8. Pattern for inter-module communication (via a mediator)
+
