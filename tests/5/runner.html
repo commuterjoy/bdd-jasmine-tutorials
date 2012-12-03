@@ -1,0 +1,45 @@
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="../../vendor/jasmine-1.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="../../vendor/jasmine-1.2.0/jasmine.css">
+  <script type="text/javascript" src="../../vendor/jasmine-1.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="../../vendor/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <script>
+    var curl = {
+        baseUrl: './src',
+        paths: {
+            jquery: 'jquery-1.8.3' // A versioned external dependency
+        } 
+    }
+  </script>
+
+  <script type="text/javascript" src="../../vendor/curl.js"></script>
+
+  <script type="text/javascript" src="./spec/testSpec.js">
+    // the jasmine spec file
+  </script>
+
+  <script type="text/javascript">
+      (function() {
+        var jasmineEnv = jasmine.getEnv();
+        
+        jasmineEnv.addReporter(new jasmine.HtmlReporter());
+
+        window.onload = function() {
+            jasmineEnv.execute();
+        }
+        
+      })();
+  </script>
+
+</head>
+<body>
+
+        <h1 id="headline">Temporary Headline</h1>
+        <button id="button">Change headline</button>
+
+        <hr/>
+
+</body>
+</html>

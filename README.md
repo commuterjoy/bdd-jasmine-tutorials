@@ -36,11 +36,6 @@ Tutorials
 - 2. Basics - beforeEach
 - 3. Pattern for testing AMD modules
 - 4. Patterns for testing asynchronous code 
-- 5. ...
+- 5. Simple DOM interactions 
 
-Homework
---------
 
-- 1. JSONP - most requests are via jsonp (not xhr).
-- 2. 
-- 3. 
