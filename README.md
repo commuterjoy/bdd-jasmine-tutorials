@@ -32,11 +32,11 @@ open tests/3/runner.html
 Tutorials
 ---------
 
-- 1. Basics - describe, it, expect
-- 2. Basics - beforeEach
-- 3. Pattern for testing AMD modules
-- 4. Three patterns for testing asynchronous code 
-- 5. Simple DOM interactions 
-- 6. Dates
-- 7. Custom matchers
+1. Basics - describe, it, expect
+2. Basics - beforeEach
+3. Pattern for testing AMD modules
+4. Three patterns for testing asynchronous code 
+5. Simple DOM interactions 
+6. Dates
+7. Custom matchers
  
