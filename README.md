@@ -1,3 +1,4 @@
+This is a set of annotated tutorials for Jasmine, the JavaScript BDD test framework.
 
 Install
 -------
@@ -5,7 +6,7 @@ Install
 Get the code,
 
 ```
-git@github.com:commuterjoy/bdd-jasmine-tutorials.git
+git clone git@github.com:commuterjoy/bdd-jasmine-tutorials.git
 ```
 
 And the Jasmine runner and the express MVC framework,,
@@ -23,7 +24,7 @@ Some of the test can be run in node,
 jasmine-node --verbose tests/1
 ```
 
-And some of them in the browser,
+And some of them require a web browser,
 
 ```
 node server.js

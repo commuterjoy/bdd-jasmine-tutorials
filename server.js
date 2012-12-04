@@ -15,11 +15,11 @@ app.get('/', function(req, res) {
     
     var specs = [3,4,5,6,8].map(function(i){
         var href = 'tests/' + i + '/runner.html'
-        return '<li style="line-height: 200%"><a href="'+href+'">'+href+'</a></li>'
+        return '<li style="line-height: 150%"><a href="'+href+'">test #'+i+'.</a>'
     }) 
 
     res.setHeader('Content-Type', 'text/html');
-    res.end(specs.join(''));
+    res.end('<ul>' + specs.join(''));
 
 })
 
