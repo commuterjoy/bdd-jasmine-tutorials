@@ -8,6 +8,7 @@ describe("Module #2", function() {
         arr = [];     
     });
 
+    //  
     afterEach(function() {
     });
 
@@ -18,7 +19,7 @@ describe("Module #2", function() {
     
     it("should remove an item from the list", function() {
         arr.push("test")
-        arr.pop("test pop")
+        arr.pop("foo")
         expect(arr.length).toBe(0);
     });
 

@@ -7,36 +7,37 @@ describe("Module #1", function() {
     // A single test expectation
     it("contains spec with an expectation", function() {
         
-        // An assertion
+        // An expectation
         expect(true).toBe(true);
     
     });
     
     // A second test
-    it("should evaluate variables", function() {
+    it("evaluates variables", function() {
         
         a = 5;
-        expect(a).toBeGreaterThan(2); // lots of matchers - ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
+        expect(a).toBeGreaterThan(2); // Lots of matchers - ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
     
     });
 
-    it("should evaluate objects", function() {
+    it("evaluates arrays and objects", function() {
         
         var Dog = function(name, color) {
-            this.name = name || 'spot';
-            this.color = color || '#000'; 
+            
+            this.name = name;
+            this.color = color;
+
             this.toString = function() {
                 return [ this.name, this.color ].join(',')
             } 
         }
 
-        // compare objects & array
+        // Compare objects & array
         expect( {a:1} ).toEqual( {a:1} );
         expect( [1,2] ).toEqual( [1,2] );
 
-        // or methods of custom objects
-        expect( new Dog('bingo').toString() ).toEqual( 'bingo,#000' )
-    
+        // We can't test complex objects, so instead use a toString method
+        expect( new Dog('bingo', 'blue').toString() ).toEqual( 'bingo,blue' )
 
     });
 
