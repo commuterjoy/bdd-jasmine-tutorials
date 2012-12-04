@@ -7,7 +7,7 @@ curl(['foo', 'jquery']).then( function  (bar, $) {
                 // read a fixture from the test runner DOM
                 var headline = document.getElementById('headline');
 
-                // execute the module code the replace the headline
+                // execute the module code to replace the headline
                 bar.replace(headline);
 
                 // assert against the DOM
