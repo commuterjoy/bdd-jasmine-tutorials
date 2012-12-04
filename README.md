@@ -8,10 +8,10 @@ Get the code,
 git@github.com:commuterjoy/bdd-jasmine-tutorials.git
 ```
 
-And the Jasmine runner,
+And the Jasmine runner and the express MVC framework,,
 
 ```
-npm install jasmine-node
+npm install jasmine-node express
 ```
 
 Run the tests
@@ -26,7 +26,8 @@ jasmine-node --verbose tests/1
 And some of them in the browser,
 
 ```
-open tests/3/runner.html
+node server.js
+open http://localhost:3000/
 ```
 
 Tutorials
