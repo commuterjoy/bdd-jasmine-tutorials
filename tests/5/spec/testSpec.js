@@ -1,31 +1,37 @@
-curl(['foo', 'jquery']).then( function  (bar, $) {
+curl(['headline', 'jquery']).then( function  (headline, $) {
 
         describe("Module #5", function() {
 
+            var el;
+
+            beforeEach(function() {
+                
+                // Read a fixture from the DOM
+                el = document.getElementById('headline');
+                el.innerText = 'Headline';
+            
+            })
+
             it("should replace the headline of the page", function() {
                 
-                // read a fixture from the test runner DOM
-                var headline = document.getElementById('headline');
+                // Execute the module code the replace the headline
+                headline.replace(el);
 
-                // execute the module code the replace the headline
-                bar.replace(headline);
-
-                // assert against the DOM
-                expect(headline.innerText).toEqual('New Headline');
+                // Assert against the DOM
+                expect(el.innerText).toEqual('Headline | guardian.co.uk');
             
             });
             
             it("should replace the headline of the page when clicked", function() {
                 
-                var button = document.getElementById('button') 
-                  , headline = document.getElementById('headline');
+                var button = document.getElementById('button'); 
 
-                bar.headlineChange(button, headline);
+                headline.bindReplaceToEvent(button, el);
 
-                // simulate user interaction with the DOM (via JQuery)
+                // Simulate user interaction with the DOM (via JQuery)
                 $('#button').trigger('click');
 
-                expect(headline.innerText).toEqual('New Headline (clicked)');
+                expect(el.innerText).toEqual('Headline | guardian.co.uk - clicked');
             
             });
 
