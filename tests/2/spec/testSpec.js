@@ -13,21 +13,27 @@ describe("Module #2", function() {
     });
 
     it("should append an item to the list", function() {
+
         arr.push("test")    
         expect(arr.length).toBe(1);
+
     });
     
     it("should remove an item from the list", function() {
+
         arr.push("test")
         arr.pop("foo")
         expect(arr.length).toBe(0);
+
     });
 
     // Nb. Tests can be disabled with 'xit'
     xit("should remove all items from the list", function() {
+
         arr.push("test")
-        arr.empty()
+        arr.empty() // TODO: Not implemented yet
         expect(arr.length).toBe(0);
+
     })
 
 });

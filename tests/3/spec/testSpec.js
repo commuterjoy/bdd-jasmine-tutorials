@@ -1,7 +1,7 @@
+// Load the AMD module called 'foo' and assign to variable 'bar' 
+curl(['foo']).then( function  (bar) { 
 
-curl(['foo']).then( function  (bar) { // Load the AMD module called 'foo' and assign to variable 'bar' 
-
-        describe("Module #3", function() {
+    describe("Module #3", function() {
 
             it("should load an AMD module", function() {
                 expect(bar).toBeDefined(); // And test it has been loaded

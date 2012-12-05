@@ -16,11 +16,16 @@ describe("Module #1", function() {
     it("evaluates variables", function() {
         
         a = 5;
-        expect(a).toBeGreaterThan(2); // Lots of matchers - ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
+        expect(a).toBeGreaterThan(2); // Lots of matchers -
+                // ref: http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html
     
     });
 
     it("evaluates arrays and objects", function() {
+        
+        // Compare objects & array
+        expect( {a:1} ).toEqual( {a:1} );
+        expect( [1,2] ).toEqual( [1,2] );
         
         var Dog = function(name, color) {
             
@@ -31,10 +36,6 @@ describe("Module #1", function() {
                 return [ this.name, this.color ].join(',')
             } 
         }
-
-        // Compare objects & array
-        expect( {a:1} ).toEqual( {a:1} );
-        expect( [1,2] ).toEqual( [1,2] );
 
         // We can't test complex objects, so instead use a toString method
         expect( new Dog('bingo', 'blue').toString() ).toEqual( 'bingo,blue' )

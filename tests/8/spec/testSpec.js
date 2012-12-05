@@ -10,12 +10,17 @@ curl(['foo', 'common']).then( function  (foo, common) { // Load a shared AMD mod
             });
 
             it("modules:foo:render be called", function() {
-                spyOn(common.mediator, 'emitEvent').andCallThrough(); // Spy on the mediator
-                var f = new foo();
-                common.mediator.emitEvent('something') // Fire the external event
                 
+                // Spy on the mediator
+                spyOn(common.mediator, 'emitEvent').andCallThrough();
+                var f = new foo();
+
+                // Fire the external event
+                common.mediator.emitEvent('something') 
+               
+                // Wait ... 
                 waitsFor(function(){
-                    return (common.mediator.emitEvent.callCount == 2); // Wait for the event
+                    return (common.mediator.emitEvent.callCount == 2);
                 }, "event emitter was never called", 2000)
 
                 runs(function() {

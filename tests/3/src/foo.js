@@ -1,4 +1,4 @@
-define('foo', function() {
+define('foo', function() { // A simple AMD module
 
     return { a: 1 }
 

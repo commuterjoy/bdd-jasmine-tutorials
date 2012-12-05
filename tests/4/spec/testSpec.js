@@ -25,8 +25,9 @@ curl('foo').then( function  (module) {
                     a = true;  // We set 'a' to true in the callback of the xmlhttp request
                 });
 
+                // this gets executed repeatedly for 1000ms until 'a' is true
                 waitsFor(function() {
-                    return (a == true); // this gets executed repeatedly for 1000ms until 'a' is true
+                    return (a == true); 
                 }, "a was never true", 1000)
 
                 runs(function() {
@@ -35,10 +36,11 @@ curl('foo').then( function  (module) {
 
             });
             
-            // Answer #2 - Spy on it
+            // Answer #2 - Stub it with a test spy
             it("should mock the XHR request", function() {
-
-                spyOn(module.$, "get").andCallFake(function(url, success) { // Essentially linearise the execution chain of the functions
+                
+                // Nb. Essentially linearise the execution chain of the functions
+                spyOn(module.$, "get").andCallFake(function(url, success) { 
                     success();
                     });
                 
@@ -56,13 +58,14 @@ curl('foo').then( function  (module) {
 
             });
 
-            // Answer #3 - Fake it (Sinon overwrites the window.XMLHttpRequest object)
+            // Answer #3 - Mock it (Sinon overwrites the window.XMLHttpRequest object)
             it("should fake the XHR request", function() {
 
                 var xhr = sinon.useFakeXMLHttpRequest()
                   , server = sinon.fakeServer.create();
                 
-                server.respondWith("GET", "fixtures/3", [200, {}, 'some server data']); // Nb. think about how you can use this to test HTTP 404s, 500 etc.
+                // Nb. think about how you can use this to test HTTP 404s, 500 etc.
+                server.respondWith("GET", "fixtures/3", [200, {}, 'some server data']); 
                 
                 var a = false;
 
@@ -70,10 +73,12 @@ curl('foo').then( function  (module) {
                     a = true; 
                 });
                  
-                server.respond();  // tell the fake server to respond to any requests it's received
+                // Tell the fake server to respond to any requests it's received
+                server.respond();                 
                 
                 expect(a).toBeTruthy();
 
+                // Restore native XmlHtttRequest object
                 xhr.restore();
                 
             });

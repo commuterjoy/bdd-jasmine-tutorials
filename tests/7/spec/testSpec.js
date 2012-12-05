@@ -4,6 +4,8 @@ describe("Module #7", function() {
     beforeEach(function() {
                
         this.addMatchers({
+            
+            // Our new matcher
             startsWith: function(expected) {
                 return this.actual.indexOf(expected) === 0;
                 }

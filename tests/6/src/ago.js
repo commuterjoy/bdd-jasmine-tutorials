@@ -3,7 +3,8 @@ define('ago', function() {
      timeAgoInWords = function(epoch) {
         
         var then = new Date(Number(epoch)),
-            now = new Date(),
+            now = new Date(), // Question. This will always return the date _now_ 
+                              //    so how to write stable time dependent tests?
             delta;
 
         delta = parseInt((now.getTime() - then) / 1000, 10);
